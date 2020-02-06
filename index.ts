@@ -6,26 +6,26 @@ type Entry = {
   url: string;
 };
 
-let history: Entry;
-let backIndex: number;
-let forwardIndex: number;
-let goIndex: number;
+let backPage: Entry;
+let forwardPage: Entry;
+let goPage: Entry;
 
 export default {
-  back(currentIndex: number) {
-    if (currentIndex > 0) backIndex = currentIndex - 1;
-    else backIndex = currentIndex;
-    return data[backIndex];
+  back(currentPage: Entry) {
+    if (data.indexOf(currentPage) > 0)
+      backPage = data[data.indexOf(currentPage) - 1];
+    else backPage = currentPage;
+    return backPage;
   },
-  forward(currentIndex: number) {
-    if (currentIndex < data.length) forwardIndex = currentIndex + 1;
-    else forwardIndex = currentIndex;
-    return data[forwardIndex];
+  forward(currentPage: Entry) {
+    if (data.indexOf(currentPage) < data.length)
+      forwardPage = data[data.indexOf(currentPage) + 1];
+    else forwardPage = currentPage;
+    return forwardPage;
   },
-  go(currentIndex: number, step: number) {
-    if (currentIndex + step > data.length)
-      throw new Error("Page with that ID doesn't exist");
-    else goIndex = currentIndex + step;
-    return data[goIndex];
+  go(currentPage: Entry, step: number) {
+    if (data.indexOf(currentPage) + step < data.length)
+      goPage = data[data.indexOf(currentPage) + step];
+    return goPage;
   }
 };
