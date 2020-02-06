@@ -1,0 +1,17 @@
+{
+  "name": "history-mock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/jest": "^25.1.1",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5"
+  }
+}
